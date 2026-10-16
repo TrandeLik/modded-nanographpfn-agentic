@@ -1,0 +1,5 @@
+# Plot existing results without installing training dependencies.
+pandas>=2.0
+matplotlib>=3.6
+jupyterlab>=4.0
+ipykernel>=6.0

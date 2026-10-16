@@ -1,0 +1,6 @@
+# Standalone CPU environment; Python >= 3.10. No training/GPU dependencies.
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+PyYAML>=6.0
+scikit-learn==1.7.2

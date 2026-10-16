@@ -1,0 +1,42 @@
+# Shared environment for training, prior sampling, baselines, and notebooks.
+[project]
+name = "modded-nanographpfn"
+version = "0.2.0"
+description = "nanoGraphPFN development: training baseline, graph prior, and evaluation tools"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = "==3.12.9"
+dependencies = [
+    "dgl==2.4.0",
+    "h5py>=3.15.0",
+    "ipykernel>=6.0",
+    "ipython>=8.0",
+    "jupyterlab>=4.0",
+    "matplotlib>=3.6",
+    "numpy>=2.3.3",
+    "openml>=0.15.1",
+    "pandas>=2.3.3",
+    "pyyaml>=6.0",
+    "schedulefree>=1.4.1",
+    "scipy>=1.10",
+    "scikit-learn==1.7.2",  # Match baselines/requirements.txt for reproducible RF defaults.
+    "torch==2.4.0",  # Must match the DGL wheel's PyTorch ABI.
+]
+
+# DGL 2.4 CUDA 12.4 wheels are published separately from PyPI.
+[[tool.uv.index]]
+name = "dgl-index"
+url = "https://data.dgl.ai/wheels/torch-2.4/cu124/repo.html"
+format = "flat"
+explicit = true
+
+[tool.uv.sources]
+dgl = { index = "dgl-index" }
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+ignore = [
+    "E741",  # ambiguous-variable-name
+]
